@@ -1,0 +1,25 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.hhd'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.61'
+    compile group: 'com.itextpdf', name: 'itextpdf', version: '5.5.13'
+    compile group: 'com.itextpdf', name: 'itext-asian', version: '5.2.0'
+    compile group: 'org.bouncycastle', name: 'bcpkix-jdk15on', version: '1.61'
+    compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+    compile group: 'antlr', name: 'antlr', version: '2.7.6'
+}
