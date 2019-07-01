@@ -6,7 +6,6 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.*;
 import org.dom4j.DocumentException;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.io.*;
 import java.security.NoSuchAlgorithmException;
@@ -18,19 +17,6 @@ import java.security.NoSuchAlgorithmException;
  * Description: hhd
  */
 public class PdfUtil {
-
-    @Value("${basicUrl}")
-    public static String basicUrl ;
-
-    public static void main(String arg[])throws Exception {
-        ByteArrayInputStream imageStream = InputStreamUtil.getImageStream("http://120.79.183.19:9300/1/1.pdf");
-        ByteArrayInputStream iame = InputStreamUtil.getImageStream("http://120.79.183.19:9300/sannianyimeng.png");
-        byte b[] = new byte[iame.available()];
-        iame.read(b,0,iame.available());
-        String str = "时间：" + TimeUtil.getNowTime() + " QQ群：1016692522";
-        BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(new File("D:\\11.pdf")));
-        setWatermark(bos, imageStream, str,b);
-    }
 
     /**
      *
@@ -61,7 +47,6 @@ public class PdfUtil {
             image.scalePercent(100);
             image.setAlignment(Image.UNDERLYING);
             float width = reader.getPageSize(i).getWidth();
-            float height = reader.getPageSize(i).getHeight();
             image.setAbsolutePosition(10, 10);
             image.scaleAbsolute(30,30);
             content = stamper.getUnderContent(i);

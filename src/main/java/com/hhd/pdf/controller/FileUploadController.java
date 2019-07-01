@@ -36,10 +36,7 @@ public class FileUploadController {
         List<String> names = new ArrayList<>();
         List<String> filePathLocal = new ArrayList<>();
         for(MultipartFile filename:filenames) {
-            System.out.println(filename.getOriginalFilename());//打印上传文件的名称例如：59cb63c0Na17df7df.jpg
             names.add(filename.getOriginalFilename());
-
-            System.out.println(filename.getName());//打印页面中name属性的值
             String path = DefaultValue.basicUrl+ TimeUtil.getNowTime();
             File file = new File(path);
             //如果路径不存在，新建
@@ -48,10 +45,9 @@ public class FileUploadController {
             }
             //输出文件
             String localPath = path + "\\" + filename.getOriginalFilename();
-            System.out.println("本地文件输出  ----> localPath = "+localPath);
             filePathLocal.add(localPath);
             BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(localPath)));
-            ByteArrayInputStream iame = InputStreamUtil.getImageStream("http://120.79.183.19:9300/sannianyimeng.png");
+            ByteArrayInputStream iame = InputStreamUtil.getImageStream("http://www.huhdcc.top:8001/static/sm_pdf_service/sannianyimeng.png");
             byte b[] = new byte[iame.available()];
             iame.read(b,0,iame.available());
             String desc = "时间：" + TimeUtil.getNowTime() + " QQ群：1016692522";
@@ -60,8 +56,7 @@ public class FileUploadController {
         //输出zip
         String urldownloadZip = ZipUtil.urldownloadZip(names, filePathLocal);
         System.out.println("zip 文件地址 urldownloadZip= "+urldownloadZip);
-        urldownloadZip = urldownloadZip.replaceAll("\\\\", "/").replaceAll("//","/");
-        urldownloadZip = urldownloadZip.replaceAll("/home/html", "http://www.huhdcc.top:9300");
+        urldownloadZip = urldownloadZip.replaceAll("/usr/local/java/resources/static/sm_pdf_service", "http://www.huhdcc.top:8001/static/sm_pdf_service");
         System.out.println("nginx 地址 path = "+urldownloadZip);
         return urldownloadZip;
     }
