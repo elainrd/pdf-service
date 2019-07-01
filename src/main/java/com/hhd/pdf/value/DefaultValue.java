@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Configuration;
 public class DefaultValue {
 
     @Value("${basicUrl}")
-    public static String basicUrl = "/home/html/upload/";
+    public static String basicUrl = "/usr/local/java/resources/static/sm_pdf_service/";
 
     @Value("${fontUrl}")
-    public static String fontUrl = "/home/html/font/simkai.ttf";
+    public static String fontUrl = "/usr/local/java/resources/static/sm_pdf_service/simkai.ttf";
 
     static {
         String property = System.getProperties().getProperty("os.name");

@@ -17,18 +17,6 @@ import java.util.zip.ZipOutputStream;
  * Description: hhd
  */
 public class ZipUtil {
-    public static void main(String[] args) throws Exception {
-        List<String> filenams = new ArrayList<>();
-        filenams.add("三年一梦(已去底).png");
-        filenams.add("三年一梦.png");
-        filenams.add("平台对接.pdf");
-        List<String> lstStr = new ArrayList<>();
-        lstStr.add("E:\\fileupload\\2019-04-24\\三年一梦(已去底).png");
-        lstStr.add("E:\\fileupload\\2019-04-24\\三年一梦.png");
-        lstStr.add("E:\\fileupload\\2019-04-24\\平台对接.pdf");
-        urldownloadZip(filenams, lstStr);
-    }
-
     public static String urldownloadZip(List<String> fileNamelst, List<String> lstStr) throws Exception {
         //ConfigConstants.ZIPNAME为项目中配置的URL路径
         String fileName =new String(DefaultValue.basicUrl+TimeUtil.getNowTime()+"/"+System.currentTimeMillis()+".zip");
